@@ -7,17 +7,17 @@
 
 ## 📋 Table of Contents
 
--   [What This System Does](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-what-this-system-does)
--   [Key Benefits](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-key-benefits)
--   [How It Works](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-how-it-works)
--   [Visual Flow Diagrams](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-visual-flow-diagrams)
--   [Getting Started](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-getting-started)
--   [Vendor Types](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-vendor-types)
--   [User Guide](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-user-guide)
--   [Admin Guide](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-admin-guide)
--   [Technical Details](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-technical-details)
--   [Deployment](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-deployment)
--   [Support](https://claude.ai/chat/ae54b705-9d30-420d-838e-b7c56e77fa35#-support)
+-   [What This System Does]
+-   [Key Benefits]
+-   [How It Works]
+-   [Visual Flow Diagrams]
+-   [Getting Started]
+-   [Vendor Types]
+-   [User Guide]
+-   [Admin Guide]
+-   [Technical Details]
+-   [Deployment]
+-   [Support]
 
 ----------
 
