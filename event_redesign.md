@@ -151,17 +151,17 @@ graph TB
 ```mermaid
 graph LR
     subgraph "RabbitMQ Queues"
-        A[high_priority_chat<br/>Priority: 10<br/>TTL: 30s] 
-        B[normal_priority_chat<br/>Priority: 5<br/>TTL: 60s]
-        C[session_buffer_chat<br/>Priority: 7<br/>TTL: 45s]
-        D[events<br/>Priority: 3<br/>No TTL]
+        A["high_priority_chat<br/>Priority: 10<br/>TTL: 30s"] 
+        B["normal_priority_chat<br/>Priority: 5<br/>TTL: 60s"]
+        C["session_buffer_chat<br/>Priority: 7<br/>TTL: 45s"]
+        D["events<br/>Priority: 3<br/>No TTL"]
     end
     
     subgraph "Routing Keys"
-        E[session.{session_id}.urgent]
-        F[session.{session_id}.normal]
-        G[session.{session_id}.buffer]
-        H[events.{event_type}]
+        E["session.SESSION_ID.urgent"]
+        F["session.SESSION_ID.normal"]
+        G["session.SESSION_ID.buffer"]
+        H["events.EVENT_TYPE"]
     end
     
     E --> A
@@ -243,7 +243,7 @@ class MessageRouterService:
         )
     
     def _is_high_frequency_session(self, session_id: str) -> bool:
-        """Check if session has high message frequency (>3 messages in 5 min)"""
+        """Check if session has high message frequency (over 3 messages in 5 min)"""
         key = f"session:frequency:{session_id}"
         message_count = self.redis_client.get(key)
         return int(message_count or 0) > 3
@@ -1076,47 +1076,47 @@ Based on the analysis, the **Priority Queue System with Session-Based Routing** 
 ```mermaid
 graph TB
     subgraph "Queue Health Dashboard"
-        A[Queue Depth<br/>Target: <1000 messages]
-        B[Message Age<br/>Target: <30 seconds]
-        C[Processing Rate<br/>Target: 100+ msg/sec]
-        D[Priority Distribution<br/>Monitor queue balance]
+        A["Queue Depth<br/>Target: under 1000 messages"]
+        B["Message Age<br/>Target: under 30 seconds"]
+        C["Processing Rate<br/>Target: 100+ msg/sec"]
+        D["Priority Distribution<br/>Monitor queue balance"]
     end
     
     subgraph "Session Metrics"
-        E[Active Sessions<br/>Current processing count]
-        F[Average Processing Time<br/>Target: 8-12 seconds]
-        G[Session Conflicts<br/>Target: <5% messages]
-        H[Lock Success Rate<br/>Target: >95%]
+        E["Active Sessions<br/>Current processing count"]
+        F["Average Processing Time<br/>Target: 8-12 seconds"]
+        G["Session Conflicts<br/>Target: under 5% messages"]
+        H["Lock Success Rate<br/>Target: over 95%"]
     end
     
     subgraph "Worker Metrics"  
-        I[Worker Utilization<br/>Target: 70-85%]
-        J[Task Success Rate<br/>Target: >98%]
-        K[Error Rate<br/>Target: <2%]
-        L[Memory Usage<br/>Monitor for leaks]
+        I["Worker Utilization<br/>Target: 70-85%"]
+        J["Task Success Rate<br/>Target: over 98%"]
+        K["Error Rate<br/>Target: under 2%"]
+        L["Memory Usage<br/>Monitor for leaks"]
     end
     
     subgraph "AI Service Metrics"
-        M[Response Time<br/>Target: 8-10 seconds]
-        N[Success Rate<br/>Target: >95%]
-        O[Concurrent Calls<br/>Monitor capacity]
-        P[Queue Wait Time<br/>Target: <5 seconds]
+        M["Response Time<br/>Target: 8-10 seconds"]
+        N["Success Rate<br/>Target: over 95%"]
+        O["Concurrent Calls<br/>Monitor capacity"]
+        P["Queue Wait Time<br/>Target: under 5 seconds"]
     end
 ```
 
 ### Alerting Configuration
 
 #### Critical Alerts
-- **Queue Depth** > 5000 messages (immediate escalation)
-- **Message Processing Failure Rate** > 5%
-- **AI Service Response Time** > 20 seconds
-- **Worker Pool Exhaustion** (all workers busy for >5 minutes)
+- **Queue Depth** over 5000 messages (immediate escalation)
+- **Message Processing Failure Rate** over 5%
+- **AI Service Response Time** over 20 seconds
+- **Worker Pool Exhaustion** (all workers busy for over 5 minutes)
 
 #### Warning Alerts  
-- **Queue Depth** > 1000 messages
-- **Message Age** > 60 seconds
-- **Session Lock Conflicts** > 10%
-- **AI Service Response Time** > 15 seconds
+- **Queue Depth** over 1000 messages
+- **Message Age** over 60 seconds
+- **Session Lock Conflicts** over 10%
+- **AI Service Response Time** over 15 seconds
 
 ### Monitoring Tools Integration
 
@@ -1232,14 +1232,14 @@ class MetricsCollector:
 ### System Reliability
 
 #### Error Reduction
-- **Message Processing Errors**: Target <2% (from current ~5%)
+- **Message Processing Errors**: Target under 2% (from current ~5%)
 - **Out-of-Order Messages**: Target 0% (from current ~15-20%)
-- **Session Conflicts**: Target <5% conflict rate
+- **Session Conflicts**: Target under 5% conflict rate
 
 #### Availability Improvements
 - **System Uptime**: Target 99.9% availability
 - **Graceful Degradation**: Maintain core functionality during failures
-- **Recovery Time**: <5 minutes for most failure scenarios
+- **Recovery Time**: under 5 minutes for most failure scenarios
 
 ### User Experience Impact
 
